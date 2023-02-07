@@ -50,3 +50,6 @@ group :test do
   gem "rspec", "~> 3.10"
   gem "rspec-json_expectations", "~> 2.2"
 end
+
+# This gems will be used to seed data
+gem "faker", "~> 2.19"

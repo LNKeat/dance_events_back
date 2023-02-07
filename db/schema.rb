@@ -10,19 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_164240) do
+ActiveRecord::Schema.define(version: 2023_02_07_182045) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "style"
+    t.string "dance_style"
     t.boolean "is_affordable"
     t.date "start"
     t.integer "location_id"
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "city"
-    t.string "region"
+    t.string "name"
   end
 
 end
