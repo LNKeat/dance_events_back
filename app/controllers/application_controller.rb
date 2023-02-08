@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
   get "/locations" do
     loc = Location.all
-    loc.to_json(include: :events)
+    loc.to_json(include: { events: {only: [:name, :start] }})
   end
 
   get "/events/:id" do
