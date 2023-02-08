@@ -6,4 +6,24 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/events" do
+    evt = Event.all
+    evt.to_json
+  end
+
+  get "/locations" do
+    loc = Location.all
+    loc.to_json(include: :events)
+  end
+
+  get "/events/:id" do
+    evt = Event.find(params[:id])
+    evt.to_json
+  end
+
+  get "/locations/:id" do
+    loc = Location.find(params[:id])
+    loc.to_json
+  end
+
 end
