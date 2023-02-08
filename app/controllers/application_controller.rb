@@ -7,8 +7,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/events" do
-    evt = Event.all
-    evt.to_json
+    evt = Event.all.order(start: :asc)
+    evt.to_json(include: :location)
   end
 
   get "/locations" do
