@@ -23,12 +23,32 @@ class ApplicationController < Sinatra::Base
 
   get "/events/:id" do
     evt = Event.find(params[:id])
-    evt.to_json
+    evt.to_json(include: :location)
   end
 
   get "/locations/:id" do
     loc = Location.find(params[:id])
     loc.to_json
+  end
+
+  put "/locations/:id" do
+    loc = Location.find(params[:id])
+    loc.update(
+      name: params[:name]
+      )
+    loc.to_json
+  end
+
+  put "/events/:id" do
+    evt = Event.find(params[:id])
+    evt.update(
+      name: params[:name], 
+      dance_style: params[:dance_style],
+      is_affordable: params[:is_affordable],
+      start: params[:start],
+      price: params[:price]
+      )
+    evt.to_json
   end
 
 end
