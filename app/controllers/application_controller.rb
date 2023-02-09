@@ -51,4 +51,10 @@ class ApplicationController < Sinatra::Base
     evt.to_json
   end
 
+  delete "/events/:id" do 
+    evt = Event.find(params[:id])
+    evt.destroy
+    evt.to_json
+  end
+
 end
