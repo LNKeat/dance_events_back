@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   # ***  make sure affordability is being accounted for with post & put requests  ***
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    { message: "Laura's project!" }.to_json
   end
 
   get "/events" do
